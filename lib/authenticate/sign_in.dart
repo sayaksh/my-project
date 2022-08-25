@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kanglei_tourist_home/authenticate/sign_up.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -8,100 +7,59 @@ class LogIn extends StatefulWidget {
   State<LogIn> createState() => _LogInState();
 }
 
-final _formKey = GlobalKey<FormState>();
-final controller_1 = TextEditingController();
-final controller_2 = TextEditingController();
-
-String username = '';
-String password = '';
-
 class _LogInState extends State<LogIn> {
+  //final AuthService _auth = AuthService();
+  String email = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[50],
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 60,
+      appBar: AppBar(
+        title: const Text("Sign in tourist home"),
+      ),
+      body: Container(
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 50),
+          child: Form(
+            child: Column(children: [
+              TextFormField(
+                decoration: const InputDecoration(labelText: "enter email-id"),
+                onChanged: ((value) {
+                  setState(() {
+                    email = value;
+                  });
+                }),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(labelText: "enter password"),
+                obscureText: true,
+                onChanged: ((value) {
+                  setState(() {
+                    password = value;
+                  });
+                }),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  (email);
+                  (password);
+                },
+                child: const Text(
+                  "Sign in",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+            ]),
           ),
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60),
-              child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      // SizedBox(
-                      //   height: 100,
-                      //   child: Image.network(
-                      //       "https://upload.wikimedia.org/wikipedia/commons/5/53/Wikimedia-logo.png"),
-                      // ),
-                      TextFormField(
-                        autovalidateMode: AutovalidateMode.always,
-                        controller: controller_1,
-                        keyboardType: TextInputType.name,
-                        decoration: const InputDecoration(
-                            labelText: 'Enter username',
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.pink))),
-                        validator: (value) {
-                          if (value == null || value == username) {}
-                          return null;
-                        },
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      TextFormField(
-                        autovalidateMode: AutovalidateMode.always,
-                        controller: controller_2,
-                        keyboardType: TextInputType.name,
-                        decoration: const InputDecoration(
-                            fillColor: Colors.white,
-                            labelText: 'Enter password',
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.pink))),
-                        validator: (value) {
-                          if (value == null || value == password) {}
-                          return null;
-                        },
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          if (username == controller_1.text &&
-                              password == controller_2.text) {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) => const DashBoard()),
-                            // );
-                          }
-                        },
-                        child: const Text('Login'),
-                      ),
-                      TextButton(
-                          onPressed: () {},
-                          child: const Text("Forget password? Click here")),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SignUpPage(),
-                            ),
-                          );
-                        },
-                        child: const Text("Sign up"),
-                      ),
-                    ],
-                  )),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

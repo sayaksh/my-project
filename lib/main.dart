@@ -27,12 +27,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo', debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: const LogIn(),
-      // home: Scaffold(
+    );
+  }
+}
+
+
+// home: Scaffold(
       //   appBar: AppBar(
       //     title: const Text("data"),
       //   ),
@@ -52,7 +58,4 @@ class _MyAppState extends State<MyApp> {
       //       ],
       //     ),
       //   ),
-      // ),
-    );
-  }
-}
+      // )
