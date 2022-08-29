@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:kanglei_tourist_home/authenticate/all_districts.dart';
+
 // Import the generated file
-import 'authenticate/sign_in.dart';
+
 import 'firebase_options.dart';
 
 void main() async {
@@ -21,41 +23,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final database = FirebaseDatabase.instance;
-  String d = '';
-
+  final database = FirebaseDatabase.instance.ref();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const LogIn(),
-    );
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const AllDistrictPage());
   }
 }
-
-
-// home: Scaffold(
-      //   appBar: AppBar(
-      //     title: const Text("data"),
-      //   ),
-      //   body: Center(
-      //     child: Column(
-      //       children: [
-      //         ElevatedButton(
-      //             onPressed: () async {
-      //               var data = await database.ref("name").get();
-      //               setState(() {
-      //                 d = data.value.toString();
-      //               });
-      //               log(data.value.toString());
-      //             },
-      //             child: const Text("Check")),
-      //         Text(d)
-      //       ],
-      //     ),
-      //   ),
-      // )
