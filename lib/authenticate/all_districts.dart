@@ -20,7 +20,7 @@ class _AllDistrictPageState extends State<AllDistrictPage> {
   }
 
   getdata() async {
-    var user = await ServiceApi().Getdata();
+    var user = await ServiceApi().getdata();
 
     setState(() {
       datalist = user!;
@@ -44,8 +44,8 @@ class _AllDistrictPageState extends State<AllDistrictPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DistrictdetailPage(
-                                attributes: datalist[index].attributes)));
+                            builder: (context) =>
+                                DistrictdetailPage(allData: datalist[index])));
                   },
                   child: Text(
                     datalist[index].attributes.districtName,

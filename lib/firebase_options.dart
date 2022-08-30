@@ -55,6 +55,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '851611299599',
     projectId: 'kanglei-tourist-home',
     authDomain: 'kanglei-tourist-home.firebaseapp.com',
+    databaseURL: 'https://kanglei-tourist-home-default-rtdb.firebaseio.com',
     storageBucket: 'kanglei-tourist-home.appspot.com',
   );
 
@@ -63,6 +64,7 @@ class DefaultFirebaseOptions {
     appId: '1:851611299599:android:b88b6ba4e3ac9360ee187a',
     messagingSenderId: '851611299599',
     projectId: 'kanglei-tourist-home',
+    databaseURL: 'https://kanglei-tourist-home-default-rtdb.firebaseio.com',
     storageBucket: 'kanglei-tourist-home.appspot.com',
   );
 }

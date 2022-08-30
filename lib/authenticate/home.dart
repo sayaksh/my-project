@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kanglei_tourist_home/model/model.dart';
 
 class DistrictdetailPage extends StatefulWidget {
-  final Attributes attributes;
-  const DistrictdetailPage({Key? key, required this.attributes})
-      : super(key: key);
+  final DistrictModel2 allData;
+
+  const DistrictdetailPage({Key? key, required this.allData}) : super(key: key);
 
   @override
   State<DistrictdetailPage> createState() => _DistrictdetailPageState();
@@ -15,36 +15,41 @@ class _DistrictdetailPageState extends State<DistrictdetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.attributes.districtName),
+        title: Text(widget.allData.attributes.districtName),
       ),
       body: Column(
         children: [
           Expanded(
-            flex: 30,
+            flex: 10,
             child: SizedBox(
                 child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
-                  Text(widget.attributes.description),
+                  Text(
+                    widget.allData.attributes.description,
+                    style: const TextStyle(fontSize: 15, color: Colors.black),
+                    textAlign: TextAlign.justify,
+                  ),
                   const SizedBox(
                     height: 30,
                   ),
                   const Text(
                     'Recommended Spots :',
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
             )),
           ),
           Expanded(
-            flex: 20,
+            flex: 6,
             child: SizedBox(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListView.builder(
                     shrinkWrap: true,
+                    itemCount: widget.allData.attributes.spots!.length,
                     itemBuilder: (c, i) {
                       return InkWell(
                         onTap: () {},
@@ -56,14 +61,15 @@ class _DistrictdetailPageState extends State<DistrictdetailPage> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(25),
                                 child: Image.network(
-                                  widget.attributes.spots![i].imgUrl,
+                                  widget.allData.attributes.spots![i].imgUrl,
                                   fit: BoxFit.cover,
                                 ),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(bottom: 20),
-                              child: Text(widget.attributes.spots![i].spotName),
+                              child: Text(
+                                  widget.allData.attributes.spots![i].spotName),
                             )
                           ],
                         ),
