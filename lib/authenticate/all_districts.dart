@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kanglei_tourist_home/authenticate/home.dart';
-import 'package:kanglei_tourist_home/model/model.dart';
+import 'package:kanglei_tourist_home/authenticate/district.detailed.page.dart';
+import 'package:kanglei_tourist_home/model/districts.model.dart';
 
 import 'package:kanglei_tourist_home/services/serviceapi.dart';
 
@@ -32,6 +32,7 @@ class _AllDistrictPageState extends State<AllDistrictPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("All Districts"),
+        centerTitle: true,
       ),
       body: ListView.builder(
           shrinkWrap: true,

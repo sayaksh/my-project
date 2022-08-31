@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kanglei_tourist_home/model/model.dart';
+import 'package:kanglei_tourist_home/authenticate/allspot.dart';
+import 'package:kanglei_tourist_home/model/districts.model.dart';
 
 class DistrictdetailPage extends StatefulWidget {
   final DistrictModel2 allData;
@@ -19,28 +20,53 @@ class _DistrictdetailPageState extends State<DistrictdetailPage> {
       ),
       body: Column(
         children: [
-          Expanded(
-            flex: 10,
-            child: SizedBox(
-                child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  Text(
-                    widget.allData.attributes.description,
-                    style: const TextStyle(fontSize: 15, color: Colors.black),
-                    textAlign: TextAlign.justify,
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const Text(
-                    'Recommended Spots :',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            )),
+          SingleChildScrollView(
+            child: Expanded(
+              flex: 10,
+              child: SizedBox(
+                  child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      widget.allData.attributes.description,
+                      style: const TextStyle(fontSize: 15, color: Colors.black),
+                      textAlign: TextAlign.justify,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Recommended Spots :',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AllspotPage(
+                                            attributes:
+                                                widget.allData.attributes,
+                                          )));
+                            },
+                            child: Text('View all'))
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    )
+                  ],
+                ),
+              )),
+            ),
           ),
           Expanded(
             flex: 6,
