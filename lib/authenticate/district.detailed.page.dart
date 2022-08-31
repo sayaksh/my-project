@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kanglei_tourist_home/authenticate/allspot.dart';
+import 'package:kanglei_tourist_home/authenticate/view.spot.dart';
 import 'package:kanglei_tourist_home/model/districts.model.dart';
 
 class DistrictdetailPage extends StatefulWidget {
@@ -16,7 +16,13 @@ class _DistrictdetailPageState extends State<DistrictdetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.allData.attributes.districtName),
+        backgroundColor: Colors.lightGreen,
+        title: Text(
+          widget.allData.attributes.districtName,
+          style: const TextStyle(
+            fontSize: 20,
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -25,15 +31,15 @@ class _DistrictdetailPageState extends State<DistrictdetailPage> {
               flex: 10,
               child: SizedBox(
                   child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Text(
                       widget.allData.attributes.description,
-                      style: const TextStyle(fontSize: 15, color: Colors.black),
+                      style: const TextStyle(fontSize: 17, color: Colors.black),
                       textAlign: TextAlign.justify,
                     ),
                     const SizedBox(
@@ -42,10 +48,12 @@ class _DistrictdetailPageState extends State<DistrictdetailPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           'Recommended Spots :',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 20,
+                              color: Colors.purple,
+                              fontWeight: FontWeight.bold),
                         ),
                         TextButton(
                             onPressed: () {
@@ -57,10 +65,17 @@ class _DistrictdetailPageState extends State<DistrictdetailPage> {
                                                 widget.allData.attributes,
                                           )));
                             },
-                            child: Text('View all'))
+                            child: const Text(
+                              'View all...',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.purple,
+                                // fontWeight: FontWeight.bold
+                              ),
+                            ))
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     )
                   ],
@@ -95,7 +110,12 @@ class _DistrictdetailPageState extends State<DistrictdetailPage> {
                             Padding(
                               padding: const EdgeInsets.only(bottom: 20),
                               child: Text(
-                                  widget.allData.attributes.spots![i].spotName),
+                                widget.allData.attributes.spots![i].spotName,
+                                style: const TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.purple,
+                                ),
+                              ),
                             )
                           ],
                         ),

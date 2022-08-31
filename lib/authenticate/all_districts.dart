@@ -31,7 +31,13 @@ class _AllDistrictPageState extends State<AllDistrictPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("All Districts"),
+        backgroundColor: Colors.lightGreen,
+        title: const Text(
+          "All Districts",
+          style: TextStyle(
+            fontSize: 20,
+          ),
+        ),
         centerTitle: true,
       ),
       body: ListView.builder(
@@ -50,6 +56,7 @@ class _AllDistrictPageState extends State<AllDistrictPage> {
                   },
                   child: Text(
                     datalist[index].attributes.districtName,
+                    style: const TextStyle(color: Colors.purple, fontSize: 17),
                   ),
                 )
               ],

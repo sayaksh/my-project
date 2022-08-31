@@ -35,12 +35,20 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightGreen,
+        leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.person_add_alt_rounded,
+              color: Colors.white,
+            )),
         title: const Text(
           "Kanglei Tourist Home",
           style: TextStyle(
-            fontSize: 17,
+            fontSize: 20,
           ),
         ),
+        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -66,24 +74,35 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           Expanded(
-              flex: 3,
-              child: Column(children: [
-                const Text(
-                  "click below",
-                  style: TextStyle(fontSize: 16),
+            flex: 3,
+            child: Column(children: [
+              const Text(
+                "click below",
+                style: TextStyle(fontSize: 14, color: Colors.black),
+              ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AllDistrictPage()));
+                  },
+                  child: const Text(
+                    "--To Explore Manipur--",
+                    style: TextStyle(fontSize: 17, color: Colors.purple),
+                  )),
+              const SizedBox(
+                height: 50,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25),
+                child: Text(
+                  "   Bishnupur is called the cultural and religious capital of Manipur. The land where Lord Vishnu resides, the land which is beautifully dotted with dome-shaped terracotta temples and the home of the famed dancing deer, sangai",
+                  style: TextStyle(fontSize: 17, color: Colors.black),
                 ),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const AllDistrictPage()));
-                    },
-                    child: const Text(
-                      "To Explore Manipur",
-                      style: TextStyle(fontSize: 17),
-                    )),
-              ]))
+              )
+            ]),
+          )
         ],
       ),
     );
